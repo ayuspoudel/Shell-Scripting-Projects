@@ -22,20 +22,21 @@
 set -x
 
 #List S3 Buckets
-echo "List of S3 Buckets"
-aws s3 ls
+	echo "List of S3 Buckets"> resource_tracker
+aws s3 ls >> resource_tracker
 
 
 #List ec2 instances
-echo "List of ec2 instances"
-aws ec2 describe-instances
+echo "List of ec2 instances" >> resource_tracker
+aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId'>>resource_tracker
 
 
 #list aws lambda
-echo "List of aws lambda"
-aws lambda list-functions
+echo "List of aws lambda">> resource_tracker
+aws lambda list-functions >> resource_tracker
 
 #List AWS IAM USers
-echo "List of IAM users"
-aws iam list-users
+echo "List of IAM users">> resource_tracker
+aws iam list-users >> resource_tracker!
+
 

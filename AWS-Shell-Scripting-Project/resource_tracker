@@ -1,0 +1,9 @@
+List of S3 Buckets
+List of ec2 instances
+"i-0f4a52708d7c2ce01"
+"i-0bbdfa51a403e9f72"
+List of aws lambda
+{
+    "Functions": []
+}
+List of IAM users

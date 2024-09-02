@@ -1,0 +1,24 @@
+{
+    "Users": [
+        {
+            "Path": "/",
+            "UserName": "codecommit-user",
+            "UserId": "AIDA5FTZA3I62H7SRL4HP",
+            "Arn": "arn:aws:iam::905418168893:user/codecommit-user",
+            "CreateDate": "2024-09-02T16:42:40+00:00",
+            "PasswordLastUsed": "2024-09-02T16:43:25+00:00"
+        }
+    ]
+}
+{
+    "Users": [
+        {
+            "Path": "/",
+            "UserName": "codecommit-user",
+            "UserId": "AIDA5FTZA3I62H7SRL4HP",
+            "Arn": "arn:aws:iam::905418168893:user/codecommit-user",
+            "CreateDate": "2024-09-02T16:42:40+00:00",
+            "PasswordLastUsed": "2024-09-02T16:43:25+00:00"
+        }
+    ]
+}
