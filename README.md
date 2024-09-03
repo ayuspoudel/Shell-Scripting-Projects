@@ -1,85 +1,284 @@
-
 # Shell Scripting Projects and Documentation
 
 ## Overview
 
-This repository is a comprehensive collection of shell scripting projects, ranging from beginner to advanced levels. Each project is designed to demonstrate various aspects of shell scripting, including file management, process automation, system monitoring, and more.
+This repository is a comprehensive collection of shell scripting projects, ranging from beginner to advanced levels. Each project is designed to demonstrate various aspects of shell scripting, including file management, process automation, system monitoring, and cloud resource management using AWS services.
 
 ## Repository Structure
 
-- **/first-shell-script/**: Contains the initial shell script project that demonstrates creating, compiling, and executing C++ files using a shell script.
-- **/advanced-projects/**: (Future) Will contain more complex and advanced shell scripting projects.
+- [`/cpp-shell-scripting-project/`](./cpp-shell-scripting-project/): Contains a shell script project that demonstrates creating, compiling, and executing C++ files using shell scripting.
+- [`/AWS-Shell-Scripting-Project/`](./AWS-Shell-Scripting-Project/): Contains a shell script for tracking and reporting usage of various AWS services within your AWS account.
+- [`/advanced-projects/`](./advanced-projects/): *(Coming Soon)* Will contain more complex and advanced shell scripting projects covering a wide range of use cases.
 
-## Project: First Shell Script
+---
+
+## Project: C++ Shell Scripting Project
 
 ### Objective
 
-The first shell script in this repository automates the process of creating, writing, compiling, and running simple C++ programs. It demonstrates the basic principles of file creation and manipulation using shell commands, as well as how to execute system commands to compile and run C++ code.
+This project automates the process of creating, writing, compiling, and executing simple C++ programs using a shell script. It demonstrates fundamental concepts of file manipulation, compilation, and execution automation through shell commands.
 
 ### Files Included
 
-- `name.cpp`: A C++ file that prints "Ayush Poudel".
-- `country.cpp`: A C++ file that prints "Nepal".
-- `first_shell_script.sh`: A shell script that automates the creation, compilation, and execution of the above C++ files.
-- `print_name`: The compiled binary for `name.cpp`.
-- `print_country`: The compiled binary for `country.cpp`.
+- **`name.cpp`**: A C++ program that prints `"Ayush Poudel"`.
+- **`country.cpp`**: A C++ program that prints `"Nepal"`.
+- **`first_shell_script.sh`**: A shell script that automates the creation, compilation, and execution of the above C++ files.
+- **`print_name`**: Compiled executable for `name.cpp`.
+- **`print_country`**: Compiled executable for `country.cpp`.
 
 ### How It Works
 
-1. **Creating C++ Files**: The script starts by creating two C++ files using the `touch` command.
+1. **Creating C++ Files**: The shell script uses the `touch` command to create two C++ source files: `name.cpp` and `country.cpp`.
 
-2. **Writing C++ Code**: It writes simple C++ programs into these files using `echo`.
+2. **Writing C++ Code**: It utilizes `echo` commands to write simple C++ code into the respective files, each designed to print a specific string to the console.
 
-3. **Compiling the Files**: The C++ files are then compiled using `g++` to create executable binaries.
+3. **Compiling the Files**: The script compiles the C++ source files using `g++`, producing executable binaries named `print_name` and `print_country`.
 
-4. **Executing the Binaries**: Finally, the script runs the compiled binaries, printing "Ayush Poudel" and "Nepal" to the console.
+4. **Executing the Binaries**: Finally, the script runs the executables, which output the predefined strings to the console.
 
 ### How to Run
 
-1. Clone the repository:
+#### Prerequisites
+
+- **GCC Compiler**: Ensure you have `g++` installed on your system.
+- **Shell Environment**: A Unix-like shell environment (e.g., Bash).
+
+#### Steps
+
+1. **Clone the Repository**:
 
    ```bash
    git clone https://github.com/yourusername/Shell-Scripting-Projects-and-Documentation.git
    ```
 
-2. Navigate to the project directory:
+2. **Navigate to the Project Directory**:
 
    ```bash
-   cd Shell-Scripting-Projects-and-Documentation/first-shell-script
+   cd Shell-Scripting-Projects-and-Documentation/cpp-shell-scripting-project
    ```
 
-3. Make the shell script executable:
+3. **Make the Shell Script Executable**:
 
    ```bash
    chmod +x first_shell_script.sh
    ```
 
-4. Run the script:
+4. **Run the Script**:
 
    ```bash
    ./first_shell_script.sh
    ```
 
-This will create, compile, and execute the C++ files, displaying the output directly in the terminal.
+5. **Expected Output**:
 
-## Future Projects
-
-This repository will be continuously updated with more advanced shell scripting projects. These projects will cover topics such as:
-
-- System monitoring and reporting
-- Backup and recovery automation
-- Network operations and security scripts
-- Scripting for DevOps tasks
-- Advanced file manipulation and processing
-
-## Contributing
-
-Contributions are welcome! If you have ideas for new projects or improvements to existing ones, feel free to open an issue or submit a pull request.
-
-## License
-
-This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+   ```
+   Ayush Poudel
+   Nepal
+   ```
 
 ---
 
-This repository is an ongoing project aimed at helping others learn and master shell scripting. Whether you're a beginner or an experienced scripter, you'll find useful resources and challenges to enhance your scripting skills.
+## Project: AWS Usage Reporting Script
+
+### Objective
+
+This project provides a shell script to track and report the usage of various AWS services within your AWS account. It generates a consolidated report detailing the current state of resources such as S3 buckets, EC2 instances, Lambda functions, and IAM users.
+
+### Author
+
+- **Name**: Ayush Poudel
+- **Date**: September 1, 2024
+- **Version**: V1
+
+### Files Included
+
+- **`aws_resource_tracker.sh`**: The main script that retrieves and logs information about AWS resources.
+- **`resource_tracker`**: Output file generated by the script containing the detailed report.
+- **`README.md`**: Documentation and usage instructions for the AWS Usage Reporting Script.
+
+### How It Works
+
+1. **S3 Buckets**: Lists all S3 buckets in your AWS account and appends the information to the `resource_tracker` file.
+
+2. **EC2 Instances**: Retrieves all EC2 instance IDs using AWS CLI and formats the output using `jq`, appending the results to the `resource_tracker` file.
+
+3. **AWS Lambda Functions**: Lists all Lambda functions available in your AWS account and appends the details to the `resource_tracker` file.
+
+4. **IAM Users**: Lists all IAM users and appends the information to the `resource_tracker` file.
+
+5. **Debugging**: The script uses `set -x` to enable debugging, printing each command to the terminal as it is executed for troubleshooting purposes.
+
+### Prerequisites
+
+- **AWS CLI**: Installed and configured with necessary permissions.
+  - **Installation**: [AWS CLI Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+  
+- **jq**: A command-line JSON processor.
+  - **Installation Commands**:
+    - **macOS**:
+      ```bash
+      brew install jq
+      ```
+    - **Ubuntu/Debian**:
+      ```bash
+      sudo apt-get install jq
+      ```
+    - **CentOS/RHEL**:
+      ```bash
+      sudo yum install jq
+      ```
+    - **Windows**:
+      ```bash
+      choco install jq
+      ```
+
+### How to Run
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/yourusername/Shell-Scripting-Projects-and-Documentation.git
+   ```
+
+2. **Navigate to the AWS Project Directory**:
+
+   ```bash
+   cd Shell-Scripting-Projects-and-Documentation/AWS-Shell-Scripting-Project
+   ```
+
+3. **Make the Script Executable**:
+
+   ```bash
+   chmod +x aws_resource_tracker.sh
+   ```
+
+4. **Run the Script**:
+
+   ```bash
+   ./aws_resource_tracker.sh
+   ```
+
+5. **View the Report**:
+
+   The script generates a file named `resource_tracker` in the current directory. View the report using:
+
+   ```bash
+   cat resource_tracker
+   ```
+
+### Script Breakdown
+
+#### S3 Buckets
+
+```bash
+aws s3 ls >> resource_tracker
+```
+
+- Lists all S3 buckets and appends the list to `resource_tracker`.
+
+#### EC2 Instances
+
+```bash
+aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId' >> resource_tracker
+```
+
+- Describes all EC2 instances and extracts their Instance IDs using `jq`, appending the results to `resource_tracker`.
+
+#### AWS Lambda Functions
+
+```bash
+aws lambda list-functions | jq '.Functions[].FunctionName' >> resource_tracker
+```
+
+- Lists all Lambda functions and extracts their names, appending them to `resource_tracker`.
+
+#### IAM Users
+
+```bash
+aws iam list-users | jq '.Users[].UserName' >> resource_tracker
+```
+
+- Lists all IAM users and extracts their usernames, appending them to `resource_tracker`.
+
+### Debugging
+
+- The script uses debugging mode to trace command execution:
+
+  ```bash
+  set -x
+  ```
+
+- To disable debugging, comment out or remove the `set -x` line.
+
+### Notes
+
+- **AWS Credentials**: Ensure your AWS CLI is configured with appropriate credentials and permissions.
+- **Output File Location**: The `resource_tracker` file is created in the directory where the script is executed.
+- **Error Handling**: Currently, the script does not implement extensive error handling; ensure all commands execute successfully or modify the script to handle errors as needed.
+
+### Future Enhancements
+
+- **Error Handling**: Implement comprehensive error checks and handling mechanisms.
+- **Email Notifications**: Add functionality to automatically email the generated report to specified recipients.
+- **Additional Services**: Extend the script to include monitoring of other AWS services such as RDS, DynamoDB, and CloudWatch metrics.
+- **Scheduling**: Set up automated execution using cron jobs for periodic reporting.
+- **Logging**: Implement detailed logging for auditing and troubleshooting purposes.
+
+---
+
+## Future Projects
+
+This repository will be continuously updated with more advanced shell scripting projects covering various domains and complexities. Upcoming projects may include:
+
+- **System Monitoring and Reporting**: Scripts to monitor system performance, resource usage, and generate alerts.
+- **Backup and Recovery Automation**: Automated solutions for backing up and restoring data across different environments.
+- **Network Operations and Security Scripts**: Tools for managing network configurations, monitoring traffic, and enforcing security policies.
+- **DevOps Automation**: Scripts to streamline CI/CD pipelines, infrastructure provisioning, and configuration management.
+- **Data Processing and Transformation**: Advanced scripts for processing, transforming, and analyzing large datasets.
+
+---
+
+## Contributing
+
+Contributions are welcome! If you have ideas for new projects, improvements, or bug fixes, please follow these steps:
+
+1. **Fork the Repository**: Create a personal copy of the repository by clicking the "Fork" button.
+
+2. **Create a Feature Branch**:
+
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+3. **Make Changes**: Implement your changes and ensure they are well-documented and tested.
+
+4. **Commit Changes**:
+
+   ```bash
+   git commit -m "Add your commit message here"
+   ```
+
+5. **Push to Your Fork**:
+
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+6. **Submit a Pull Request**: Open a pull request to merge your changes into the main repository.
+
+---
+
+## Contact
+
+For any questions, suggestions, or feedback, feel free to reach out:
+
+- **Email**: [ayush.poudel@example.com](mailto:ayush.poudel@example.com)
+- **LinkedIn**: [Ayush Poudel](https://www.linkedin.com/in/ayushpoudel)
+- **GitHub**: [ayuspoudel](https://github.com/ayuspoudel)
+
+---
+
+*This repository is an ongoing project aimed at helping others learn and master shell scripting. Whether you're a beginner or an experienced scripter, you'll find useful resources and challenges to enhance your scripting skills.*
+```
+
+---
