@@ -1,7 +1,3 @@
-Here's a sample README file for your GitHub project:
-
----
-
 # GitHub API Integration Shell Script
 
 This project is a Bash script designed to interact with the GitHub API. The primary functionality of the script is to list all users who have read access (i.e., pull permissions) to a specific repository. This can be particularly useful for repository administrators who want to audit or review the access permissions of their collaborators.
@@ -57,20 +53,8 @@ Replace `<repo_owner>` with the owner of the repository (e.g., `ayuspoudel`) and
 
 This command will list all users with read access to the `Shell-Scripting-Projects` repository owned by `ayuspoudel`.
 
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request to discuss any changes or enhancements you'd like to see.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
 ## Contact
 
 For any questions or concerns, feel free to reach out:
 
 - **Email**: [ayushpoudel@usf.edu](mailto:ayushpoudel@usf.edu)
-
----
-
-This README provides a clear and concise overview of your script, including setup instructions, usage examples, and additional information for contributors.
